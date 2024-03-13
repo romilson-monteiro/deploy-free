@@ -13,13 +13,9 @@ app.get('/books', async (request, response) => {
 
 app.post('/books', async (request, response) => {
   const { description, name } = request.body
-  const book = await prismaClient.book.create({
-    data: {
-      description,
-      name,
-    },
-  })
-  return response.json(book)
+  console.log(description, name)
+  
+  return response.json(description, name)
 })
 
 app.listen(port, () => console.log('Server is running on port ', port))
